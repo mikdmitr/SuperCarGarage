@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SuperCarGarage.Models
 {
-    [Collection("bookings")]
+    [MongoDB.EntityFrameworkCore.Collection("bookings")]
     public class Booking
     {
         public ObjectId Id { get; set; }

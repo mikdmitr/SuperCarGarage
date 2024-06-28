@@ -55,7 +55,7 @@ namespace SuperCarGarage.Tests.Mocks
 
             var mockCarService = new Mock<ICarService>();
             mockCarService.Setup(service => service.GetAllCars()).Returns(cars);
-            mockCarService.Setup(service => service.GetCarById(It.IsAny<string>())).Returns(cars[0]);
+            mockCarService.Setup(service => service.GetCarById(ObjectId.Parse(It.IsAny<string>()))).Returns(cars[0]);
             mockCarService.Setup(service => service.AddCar(carToAdd));
             return mockCarService;
         }
@@ -84,7 +84,7 @@ namespace SuperCarGarage.Tests.Mocks
 
             mockBookingService.Setup(service => service.GetAllBookings()).Returns(bookings);
   
-            mockBookingService.Setup(service => service.GetBookingById(It.IsAny<string>()))
+            mockBookingService.Setup(service => service.GetBookingById(ObjectId.Parse(It.IsAny<string>())))
                 .Returns((string id) => bookings.FirstOrDefault(b => b.Id.ToString() == id));
 
             return mockBookingService;

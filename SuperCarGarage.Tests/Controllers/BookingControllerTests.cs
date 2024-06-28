@@ -101,7 +101,7 @@ public class BookingControllerTests
         {
             Id = bookingId
         };
-        _mockBookingService.Setup(service => service.GetBookingById(bookingId.ToString())).Returns(selectedBooking);
+        _mockBookingService.Setup(service => service.GetBookingById(ObjectId.Parse(bookingId.ToString()))).Returns(selectedBooking);
             
         // Act
         var result = _bookingController.Edit(bookingId.ToString());
@@ -159,7 +159,7 @@ public class BookingControllerTests
         {
             Id = bookingId
         };
-        _mockBookingService.Setup(service => service.GetBookingById(bookingId.ToString())).Returns(selectedBooking);
+        _mockBookingService.Setup(service => service.GetBookingById(ObjectId.Parse(bookingId.ToString()))).Returns(selectedBooking);
 
         // Act
         var result = _bookingController.Delete(bookingId.ToString());

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SuperCarGarage.Models
 {
-    [Collection("cars")]    
+    [MongoDB.EntityFrameworkCore.Collection("cars")]    
     public class Car
     {
        

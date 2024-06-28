@@ -73,7 +73,7 @@ namespace SuperCarGarage.Tests.Controllers
         public void Edit_IdIsEmpty_ReturnsNotFound()
         {
             // Act
-            var result = _carController.Edit(string.Empty);
+            var result = _carController.Edit(ObjectId.Parse(string.Empty));
             
             // Assert
             Assert.IsType<NotFoundResult>(result);
@@ -88,10 +88,10 @@ namespace SuperCarGarage.Tests.Controllers
             {
                 Id = carId
             };
-            _mockCarService.Setup(service => service.GetCarById(carId.ToString())).Returns(selectedCar);
+            _mockCarService.Setup(service => service.GetCarById(ObjectId.Parse(carId.ToString()))).Returns(selectedCar);
             
             // Act
-            var result = _carController.Edit(carId.ToString());
+            var result = _carController.Edit(ObjectId.Parse(carId.ToString()));
             
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
@@ -146,7 +146,7 @@ namespace SuperCarGarage.Tests.Controllers
         public void Delete_IdIsEmpty_ReturnsNotFound()
         {
             // Act
-            var result = _carController.Delete(string.Empty);
+            var result = _carController.Delete(ObjectId.Parse(string.Empty));
             
             // Assert
             Assert.IsType<NotFoundResult>(result);
@@ -161,10 +161,10 @@ namespace SuperCarGarage.Tests.Controllers
             {
                 Id = carId
             };
-            _mockCarService.Setup(service => service.GetCarById(carId.ToString())).Returns(selectedCar);
+            _mockCarService.Setup(service => service.GetCarById(ObjectId.Parse(carId.ToString()))).Returns(selectedCar);
             
             // Act
-            var result = _carController.Delete(carId.ToString());
+            var result = _carController.Delete(ObjectId.Parse(carId.ToString()));
             
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
